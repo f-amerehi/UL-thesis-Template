@@ -10,7 +10,7 @@ Example of the Dissertation (Undergraduate/Master/PhD) Template for University o
   \setlength{\titlepagemedskip}{0.15in}
   \setlength{\titlepagebigskip}{0.55in}
   ```
-- **Table of Contents Style**: Customize using the `tocloft` package. Refer to the style file [here][(https://github.com/Lodour/ul-thesis-template/blob/main/thesis.sty#L204-L247](https://github.com/f-amerehi/UL-thesis-Template/blob/main/thesis.sty)).
+- **Table of Contents Style**: Customize using the `tocloft` package. Refer to the style file [here][(https://github.com/Lodour/ul-thesis-template/blob/main/thesis.sty#L204-L247](https://github.com/f-amerehi/UL-thesis-Template/blob/main/thesis.sty).
 - **Section Numbering and TOC Depth**:
   ```latex
   \setcounter{secnumdepth}{2}
