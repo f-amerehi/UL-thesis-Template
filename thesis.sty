@@ -51,7 +51,9 @@
 % Enable micro-typographic enhancements for better spacing and line breaks
 \RequirePackage[protrusion=true,expansion=true]{microtype}
 % Use a compatible font family with LY1 (Palatino in this example)
-\usepackage{mathpazo}
+%\usepackage{mathpazo}
+%\usepackage{newtxtext}
+\usepackage{times}
 
 
 
@@ -76,11 +78,28 @@
 
 % Move page number to top-right in memoir
 % See https://tex.stackexchange.com/questions/178792/
-\copypagestyle{chapter}{plain}
-\makeoddfoot{chapter}{}{}{}
-\makeevenfoot{chapter}{}{}{}
-\makeoddhead{chapter}{}{}{\thepage}   %  Odd: top-right
-\makeevenhead{chapter}{\thepage}{}{}  % Even: top-left
+% \copypagestyle{chapter}{plain}
+% \makeoddfoot{chapter}{}{}{}
+% \makeevenfoot{chapter}{}{}{}
+% \makeoddhead{chapter}{}{}{\thepage}   %  Odd: top-right
+% \makeevenhead{chapter}{\thepage}{}{}  % Even: top-left
+
+\makepagestyle{mystyle}
+\makeevenfoot{mystyle}{}{\thepage}{}  % Page number centered at the bottom
+\makeoddfoot{mystyle}{}{\thepage}{}   % Page number centered at the bottom
+\makeevenhead{mystyle}{}{}{}          % Remove header numbers
+\makeoddhead{mystyle}{}{}{}           % Remove header numbers
+
+% Set default page style to mystyle
+\pagestyle{mystyle}
+
+% Also apply to plain pages (like chapter starts)
+\aliaspagestyle{chapter}{mystyle}
+\aliaspagestyle{plain}{mystyle}
+
+% Ensure footers are at the correct position (20mm from bottom)
+\setlength{\footskip}{20mm}
+
 
 
 %=============================================================================
@@ -207,6 +226,10 @@
   \printcommittee
 \end{titlepage}
 % Recover normal page layout
+\newpage
+\thispagestyle{empty}
+\null
+\newpage
 \restoregeometry
 % The titlepage is always the first page
 \setcounter{page}{1}
